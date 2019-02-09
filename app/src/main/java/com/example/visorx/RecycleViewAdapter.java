@@ -47,7 +47,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,HospitalMapActivity.class);
+                Intent intent = new Intent(context,HospitalMapsActivity.class);
                 intent.putExtra("POS",pos);
                 context.startActivity(intent);
                 Activity activity = (Activity) context;

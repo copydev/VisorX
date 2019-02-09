@@ -18,6 +18,10 @@ public class HospitalMapActivity extends AppCompatActivity {
             pos = extras.getInt("POS");
         }
 
+        Hospital hospital = new Hospital();
+
+
+
 
     }
 }

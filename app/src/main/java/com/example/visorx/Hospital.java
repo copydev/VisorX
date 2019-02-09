@@ -7,11 +7,28 @@ public class Hospital {
     private ArrayList<String> hospitalName;
     private ArrayList<String> hospitalAddress;
     private ArrayList<String> phoneNum;
+    private ArrayList<Double> latitude;
+    private ArrayList<Double> longitude;
 
     Hospital(){
         hospitalAddress = new ArrayList<>();
         hospitalName = new ArrayList<>();
         phoneNum = new ArrayList<>();
+
+        latitude.add(28.7496034);
+        longitude.add(77.1182898);
+
+        latitude.add(28.737806);
+        longitude.add(77.121311);
+
+        latitude.add(28.744775);
+        longitude.add(77.119545);
+
+        latitude.add(28.730183);
+        longitude.add(77.126191);
+
+        latitude.add(28.734741);
+        longitude.add(77.132888);
 
         hospitalName.add("Health Centre");
         hospitalName.add("Jackson Hospital & Research Centre");
@@ -54,5 +71,8 @@ public class Hospital {
     public String getPhoneNum(int pos){
         return phoneNum.get(pos);
     }
+
+    public Double getLatitude(int pos){return latitude.get(pos);}
+    public Double getLongitude(int pos){return longitude.get(pos);}
 
 }
