@@ -18,6 +18,11 @@ public class HospitalMapActivity extends AppCompatActivity {
             pos = extras.getInt("POS");
         }
 
+    }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
     }
 }

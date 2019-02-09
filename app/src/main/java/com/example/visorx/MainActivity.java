@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView helpCV,hospNearCV,xrayCV;
+    CardView helpCV,hospNearCV,xrayCV,callCV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         helpCV = findViewById(R.id.cardView2);
         hospNearCV = findViewById(R.id.cardView1);
         xrayCV = findViewById(R.id.xrayCardView);
+        callCV = findViewById(R.id.cardView3);
 
 
 
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, XrayActivity.class));
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
+            }
+        });
+
+        callCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CallHospitalActivity.class));
                 overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
             }
         });
