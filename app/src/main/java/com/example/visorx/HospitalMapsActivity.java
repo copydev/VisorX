@@ -93,7 +93,10 @@ public class HospitalMapsActivity extends FragmentActivity implements OnMapReady
 
             mMap.addMarker(new MarkerOptions().position(hosMarker).title("Move pin to adjust").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).draggable(true));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(hosMarker));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(hosMarker));
+
+
 
             name.setText(hospital.getName(pos));
             address.setText(hospital.getAddress(pos));
