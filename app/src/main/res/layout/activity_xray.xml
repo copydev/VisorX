@@ -6,42 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".XrayActivity">
 
-    <TextView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="371dp"
-        android:layout_marginBottom="360dp"
-        android:background="#000000" />
-
     <Button
         android:id="@+id/takePicButton"
-        android:layout_width="246dp"
-        android:layout_height="142dp"
+        android:layout_width="172dp"
+        android:layout_height="100dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="116dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="14dp"
+        android:layout_toStartOf="@+id/selectFileButton"
         android:text="Take a Picture"
         android:textSize="24sp" />
 
     <Button
         android:id="@+id/selectFileButton"
-        android:layout_width="246dp"
-        android:layout_height="142dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="473dp"
+        android:layout_width="172dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="355dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp"
         android:text="Select From Files"
         android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/tempImageView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/tempImageView"
+        android:layout_width="match_parent"
+        android:layout_height="592dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="139dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/bgimage"
+        android:padding="25dp"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="169dp"
+        android:text="Detect X-Ray"
+        android:textSize="18sp" />
 
 </RelativeLayout>
