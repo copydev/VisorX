@@ -10,4 +10,10 @@ public class XrayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xray);
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_left,R.anim.slide_right_out);
+    }
 }

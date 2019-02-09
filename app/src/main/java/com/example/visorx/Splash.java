@@ -29,7 +29,7 @@ public class Splash extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Splash.this,MainActivity.class);
                 startActivity(intent);
-                //overridePendingTransition(R.anim.zoomin,R.anim.zoomout);
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
             }
         });
 

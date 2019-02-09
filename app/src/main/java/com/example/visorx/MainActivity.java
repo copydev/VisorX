@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,HospitalNear.class));
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
             }
         });
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HelpActivity.class));
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
             }
         });
 
@@ -47,11 +49,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, XrayActivity.class));
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left_out);
             }
         });
 
     }
 
-
-
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_left,R.anim.slide_right_out);
+    }
 }
