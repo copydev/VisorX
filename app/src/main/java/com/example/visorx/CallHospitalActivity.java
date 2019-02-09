@@ -31,7 +31,7 @@ public class CallHospitalActivity extends AppCompatActivity {
         listView = findViewById(R.id.callListView);
         //listView.setAdapter(new MyListAdapter(this,R.layout.hospital_number_list_item));
         final Hospital hospital = new Hospital();
-        ArrayList<String> list = new ArrayList<>();
+        final ArrayList<String> list = new ArrayList<>();
         int pos=0;
         for(String i:hospital.getPhoneNum()){
             if(i != null){
@@ -50,7 +50,7 @@ public class CallHospitalActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + hospital.getPhoneNum(position)));
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + list.get(position)));
                     startActivity(intent);
                 }
 
