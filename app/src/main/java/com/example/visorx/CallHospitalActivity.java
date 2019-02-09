@@ -47,6 +47,8 @@ public class CallHospitalActivity extends AppCompatActivity {
 
                 if (ContextCompat.checkSelfPermission(CallHospitalActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(CallHospitalActivity.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + list.get(position)));
+                    startActivity(intent);
                 }
                 else
                 {
