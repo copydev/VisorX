@@ -32,4 +32,30 @@
         android:layout_marginTop="100dp"
         app:srcCompat="@drawable/mainicon2" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="52dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Fracture Detection Using X-Rays"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/ef"
+        android:text="VISORX"
+        android:textSize="40sp" />
+
 </RelativeLayout>

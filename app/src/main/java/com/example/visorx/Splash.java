@@ -61,7 +61,18 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                mAnimationSet.start();
+
+                new CountDownTimer(3000, 1000) { // adjust the milli seconds here
+
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    public void onFinish() {
+                        mAnimationSet.start();
+                    }
+                }.start();
+
             }
         });
         mAnimationSet.start();
