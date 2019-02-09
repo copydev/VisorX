@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/stethoscope"
 
                 />
 
@@ -46,6 +46,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Fracture Detection"
+                android:fontFamily="@font/amazonas"
                 android:textColor="#000"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -78,15 +79,18 @@
                 >
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:layout_width="100dp"
+                    android:layout_height="105dp"
+                    android:background="@drawable/bg_icon"
+                    android:padding="15dp"
+                    android:src="@drawable/hospitalvihaan" />
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sample Text"
+                    android:text="Get nearby hospitals"
+                    android:fontFamily="@font/amazonas"
                     android:textSize="15sp"
                     android:textColor="#000"
                     android:gravity="center"
@@ -114,15 +118,18 @@
                 >
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:layout_width="100dp"
+                    android:layout_height="105dp"
+                    android:background="@drawable/bg_icon"
+                    android:padding="15dp"
+                    android:src="@drawable/openbookvihaan" />
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sample Text"
+                    android:text="Guide and Helpbook"
+                    android:fontFamily="@font/amazonas"
                     android:textSize="15sp"
                     android:textColor="#000"
                     android:gravity="center"
@@ -151,15 +158,18 @@
                 >
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:layout_width="100dp"
+                    android:layout_height="105dp"
+                    android:background="@drawable/bg_icon"
+                    android:padding="15dp"
+                    android:src="@drawable/telephone" />
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sample Text"
+                    android:text="Call an Ambulance"
+                    android:fontFamily="@font/amazonas"
                     android:textSize="15sp"
                     android:textColor="#000"
                     android:gravity="center"
