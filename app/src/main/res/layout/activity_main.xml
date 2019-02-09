@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:weightSum="8"
+    android:background="@drawable/bg_gradient"
     android:orientation="vertical"
     android:padding="20dp"
-    >
+    android:weightSum="8"
+    tools:context=".MainActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/xrayCardView"
@@ -17,23 +17,24 @@
         android:layout_weight="4"
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp"
+
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="4"
-            android:padding="10dp"
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_marginTop="10dp"
-            >
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:weightSum="4">
+
             <ImageView
+                android:id="@+id/xrayImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/xrayImageView"
-                android:src="@drawable/ic_launcher_background"
                 android:layout_weight="3"
+                android:src="@drawable/ic_launcher_background"
 
                 />
 
@@ -41,47 +42,131 @@
                 android:id="@+id/xrayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Fracture Detection"
-                android:textSize="30sp"
-                android:textColor="#000"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:gravity="center"
-                />
+                android:text="Fracture Detection"
+                android:textColor="#000"
+                android:textSize="30sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6"
-        android:layout_weight="2"
-        android:layout_marginTop="20dp"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginTop="30dp"
         >
 
-        <!--<android.support.v7.widget.CardView
-            android:layout_width="0dp"
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            android:layout_margin="5dp"
             >
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:weightSum="3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
                 >
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:src="@drawable/ic_launcher_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample Text"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:gravity="center"
                     />
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>-->
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            android:layout_margin="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample Text"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="10dp"
+            android:layout_margin="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample Text"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
+
 
 </LinearLayout>
