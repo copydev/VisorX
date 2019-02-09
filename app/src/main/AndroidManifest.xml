@@ -12,6 +12,8 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -22,6 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -38,7 +41,10 @@
         <activity
             android:name=".HospitalMapsActivity"
             android:label="@string/title_activity_hospital_maps"></activity>
-        <activity android:name=".HospitalMapActivity" />
+
+        <activity android:name=".CallHospitalActivity"></activity>
+
+
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
