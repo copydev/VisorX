@@ -14,6 +14,8 @@ public class Hospital {
         hospitalAddress = new ArrayList<>();
         hospitalName = new ArrayList<>();
         phoneNum = new ArrayList<>();
+        latitude = new ArrayList<>();
+        longitude = new ArrayList<>();
 
         latitude.add(28.7496034);
         longitude.add(77.1182898);
