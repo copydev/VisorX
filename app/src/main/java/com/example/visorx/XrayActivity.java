@@ -7,12 +7,14 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Path;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +22,8 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class XrayActivity extends AppCompatActivity {
 
@@ -28,20 +32,29 @@ public class XrayActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
     public static final int PICK_IMAGE_REQUEST = 1;
+    public static final int PIXEL_WIDTH = 112;
 
-    File imageFile;
-    String imagePath;
+    private static final String MODEL_PATH = "tflite_model.tflite";
+    private static final String LABEL_PATH = "labels.txt";
 
-    ImageView tempImageView;
+    private static final int INPUT_SIZE = 112*112*3;
+
+    private Classifier classifier;
+
+    ImageView XRayImageView;
+    Button detectXRayButton;
+
+    Bitmap storedImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xray);
 
+        detectXRayButton = findViewById(R.id.detectXRayButton);
         takePicButton = findViewById(R.id.takePicButton);
         selectFileButton = findViewById(R.id.selectFileButton);
-        tempImageView = findViewById(R.id.tempImageView);
+        XRayImageView = findViewById(R.id.XRayImageView);
 
         takePicButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +89,43 @@ public class XrayActivity extends AppCompatActivity {
             }
         });
 
+        detectXRayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Do Bitmap Stuff
+                //Bitmap resizedImage = Bitmap.createScaledBitmap(storedImage,112,112,true);
+                float pixels[][][][] = new float[1][112][112][3];
+                //resizedImage.getPixels(pixels,0,0,0,0,112,112);
+
+                //float pixels2[] = new float[storedImage.getWidth()*storedImage.getHeight()];
+
+                for(int i = 0;i<112;i++){
+                    for(int j = 0;j<112;j++){
+                        int color = storedImage.getPixel(i,j);
+                        int red = Color.red(color);
+                        int blue = Color.blue(color);
+                        int green = Color.green(color);
+
+                        pixels[0][i][j][0] = red;
+                        pixels[0][i][j][1] = green;
+                        pixels[0][i][j][2] = blue;
+                    }
+                }
 
 
+                Classification ans = classifier.recognize(pixels);
+
+                Toast.makeText(getApplicationContext(),"Label : " + ans.getLabel() +" ,Confidence" + ans.getConf(),Toast.LENGTH_LONG).show();
+
+                //Toast.makeText(getApplicationContext(),text,Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+
+        loadModel();
 
     }
 
@@ -100,8 +148,10 @@ public class XrayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
+            storedImage = photo;
+
             //imageView.setImageBitmap(photo);
-            tempImageView.setImageBitmap(photo);
+            XRayImageView.setImageBitmap(photo);
         }
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
@@ -110,14 +160,28 @@ public class XrayActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
+                storedImage = bitmap;
 
                 //ImageView imageView = (ImageView) findViewById(R.id.imageView);
-                tempImageView.setImageBitmap(bitmap);
+                XRayImageView.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             Toast.makeText(getApplicationContext(), "You have not selected and image", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void loadModel() {
+        try {
+            classifier = TensorFlowClassifier.create(
+                    getAssets(),
+                    MODEL_PATH,
+                    LABEL_PATH,
+                    INPUT_SIZE);
+        } catch (IOException e) {
+            Log.i("LoadError","Occured"+e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -128,4 +192,6 @@ public class XrayActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_left,R.anim.slide_right_out);
     }
+
+
 }
