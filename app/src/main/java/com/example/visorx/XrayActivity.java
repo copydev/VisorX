@@ -12,6 +12,7 @@ import android.graphics.Path;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -116,10 +117,22 @@ public class XrayActivity extends AppCompatActivity {
 
                 Classification ans = classifier.recognize(pixels);
 
-                Toast.makeText(getApplicationContext(),"Label : " + ans.getLabel() +" ,Confidence" + ans.getConf(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Label : " + ans.getLabel() +" ,Confidence" + ans.getConf(),Toast.LENGTH_LONG).show();
 
                 //Toast.makeText(getApplicationContext(),text,Toast.LENGTH_LONG).show();
-
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(XrayActivity.this);
+                alertDialog.setTitle("Result");
+                String label = ans.getLabel();
+                if(label.equals("1")){
+                    label = "Fracture";
+                }
+                else{
+                    label = "No Fracture";
+                }
+                float confidence = ans.getConf();
+                alertDialog.setMessage("Prediction : " + label + "\nPrediction Confidence: " + confidence);
+                alertDialog.setPositiveButton("OK",null);
+                alertDialog.show();
 
             }
         });
